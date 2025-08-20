@@ -80,9 +80,9 @@ GEMINI_API_KEY=SuaChaveAqui
 
 ## Usando o CSV de Mock
 
-1. No repositório já existe um arquivo de exemplo: `mock.csv`.
+1. No repositório já existe um arquivo de exemplo: `dns-mock.csv`.
 
-2. No painel da aplicação, vá até **Upload de Logs DNS** e selecione o arquivo `mock.csv`.
+2. No painel da aplicação, vá até **Upload de Logs DNS** e selecione o arquivo `dns-mock.csv`.
 
 3. O sistema processará cada linha, chamando a API de IA para classificar os domínios e armazenar os resultados no banco de dados.
 
