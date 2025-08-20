@@ -1,0 +1,16 @@
+﻿timestamp;domain;client_ip
+19/08/2025 10:00;facebook.com;192.168.0.15
+19/08/2025 10:00;youtube.com;192.168.0.20
+19/08/2025 10:00;twitter.com;192.168.0.25
+19/08/2025 10:00;instagram.com;192.168.0.30
+19/08/2025 10:00;amazon.com;192.168.0.31
+19/08/2025 10:00;netflix.com;192.168.0.32
+19/08/2025 10:00;microsoft.com;192.168.0.33
+19/08/2025 10:00;apple.com;192.168.0.34
+19/08/2025 10:00;openai.com;192.168.0.35
+19/08/2025 10:00;paypal.com;192.168.0.40
+19/08/2025 10:00;paypal-secure-login.xyz;192.168.0.41
+19/08/2025 10:00;spotify.com;192.168.0.42
+19/08/2025 10:00;ransomware-download.org;192.168.0.43
+19/08/2025 10:00;fake-antivirus-download.me;192.168.0.44
+19/08/2025 10:00;get-rich-quick.online;192.168.0.45
