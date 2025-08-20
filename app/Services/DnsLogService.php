@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Jobs\ProcessDnsDomain;
 use App\Models\DnsLog;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
@@ -25,9 +26,10 @@ class DnsLogService
 
         while (($row = fgetcsv($handle, 0, ';')) !== false) {
             if (is_array($row) && count($row) >= 3) {
-                [$timestamp, $domain, $clientIp] = $row;
-
-                ProcessDnsDomain::dispatch($domain, $timestamp, $clientIp, $userId);
+                [$rawTimestamp, $domain, $clientIp] = $row;
+                $timestamp = Carbon::createFromFormat('d/m/Y H:i', $rawTimestamp)
+                    ->format('Y-m-d H:i:s');
+                ProcessDnsDomain::dispatch($domain, $timestamp, $clientIp, $userId)->delay(now()->addMilliseconds(200));;
 
                 $results[] = ['domain' => $domain, 'status' => 'Dispatched'];
             }
@@ -126,6 +128,10 @@ class DnsLogService
                 'temperature' => 0.2,
             ],
         ]);
+
+        if ($response->status() === 429) {
+            throw new \Exception("429 Too Many Requests - limite atingido");
+        }
 
         if (!$response->successful()) {
             throw new \Exception("A chamada à API do Gemini falhou com o status: " . $response->status());
