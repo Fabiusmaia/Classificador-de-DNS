@@ -15,6 +15,9 @@ class ProcessDnsDomain implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    public $tries = 5;
+    public $backoff = [10, 30, 60, 120];
+
     protected string $domain;
     protected string $timestamp;
     protected string $clientIp;
@@ -31,6 +34,8 @@ class ProcessDnsDomain implements ShouldQueue
     public function handle(DnsLogService $dnsLogService)
     {
         try {
+            usleep(500_000); 
+
             $classification = $dnsLogService->callAiApi($this->domain);
 
             DnsLog::create([
@@ -42,6 +47,7 @@ class ProcessDnsDomain implements ShouldQueue
             ]);
         } catch (\Exception $e) {
             Log::error("Erro ao processar domínio '{$this->domain}': " . $e->getMessage());
+            throw $e; 
         }
     }
 }
