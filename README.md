@@ -46,12 +46,12 @@ php artisan key:generate
 
 4. Configure o banco de dados no .env:
 ```
-DB_CONNECTION=mysql
+DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
-DB_PORT=3306
+DB_PORT=5432
 DB_DATABASE=teste_dns
-DB_USERNAME=root
-DB_PASSWORD=secret
+DB_USERNAME=postgres
+DB_PASSWORD=postgres
 ```
 
 5. Rode as migrations:
