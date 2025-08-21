@@ -70,7 +70,7 @@ O projeto ficará disponível em http://127.0.0.1:8000
 # Obtendo a API Key
 
 1. Crie uma conta ou registre-se na plataforma **Gemini**.  
-2. Gere sua **API Key** na área de desenvolvedor.  
+2. Gere sua **API Key** na área de desenvolvedor https://ai.google.dev/aistudio.  
 3. Adicione a chave no arquivo `.env` do projeto:
 
 ```env
