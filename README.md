@@ -1,4 +1,4 @@
-# Desafio Técnico: Classificação de Logs DNS usando IA
+Classificação de Logs DNS usando IA
 
 ## Objetivo
 
